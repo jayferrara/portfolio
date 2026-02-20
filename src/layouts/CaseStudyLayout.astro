@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
 
 interface Props {
   org: string;
@@ -29,6 +30,8 @@ const pageTitle = title || `${org} — Jason Ferrara`;
     <div class="cs-body container">
       <slot />
     </div>
+
+    <ContactCTA />
 
     <footer class="cs-footer container">
       <a href="/" class="cs-back">&larr; Back to work</a>

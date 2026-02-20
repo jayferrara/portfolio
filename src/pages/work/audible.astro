@@ -1,84 +1,292 @@
 ---
-import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
 ---
 
-<CaseStudyLayout org="Audible" role="Director, User Experience" year="2021–2023">
+<BaseLayout title="Audible — Jason Ferrara">
+  <article class="case-study">
 
-  <section>
-    <span class="cs-section-label">Context</span>
-    <h2 class="cs-section-title">A flagship product losing momentum</h2>
-    <p>Audible's app was perceived by users as "stale and stagnant." Content discovery was broken, and Audible Originals — a key strategic differentiator — represented only 10% of listening activity despite being a top business priority. Internally, competing success metrics, team silos, and inefficient processes meant feature improvements took 6–9 months to ship.</p>
-  </section>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <img src="/images/audible/audible_logo_2C_rgb.png" alt="Audible" class="hero-logo" />
+          <h1>Modernizing Audible's Platform Experience</h1>
+          <div class="hero-meta">
+            <span class="meta-detail">UX Director &mdash; Systems & Information Architecture</span>
+            <span class="meta-sep">/</span>
+            <span class="meta-detail">2020&ndash;2022</span>
+          </div>
+          <p>Audible was navigating premium content expansion, executive transition, and platform inconsistency across native surfaces. Discovery, navigation, and UI patterns varied across platforms, and legacy technical debt slowed delivery.</p>
+          <p>I led platform-level experience modernization across native mobile, aligning architectural clarity, experimentation strategy, and organizational structure to support scalable growth.</p>
+        </div>
+        <div class="hero-visual">
+          <img src="/images/projects/audible-tile.png" alt="Audible app redesign — home experience" class="hero-device-img" />
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <span class="cs-section-label">My Scope</span>
-    <div class="cs-scope-grid">
-      <div class="cs-scope-item">
-        <span class="cs-scope-label">Team</span>
-        <span class="cs-scope-value">12-person cross-functional squad (Design, Engineering, Product, Data Science, QA)</span>
-      </div>
-      <div class="cs-scope-item">
-        <span class="cs-scope-label">Reporting</span>
-        <span class="cs-scope-value">Director of UX — peer to Product and Engineering directors</span>
-      </div>
-      <div class="cs-scope-item">
-        <span class="cs-scope-label">Org Placement</span>
-        <span class="cs-scope-value">Central product design org, embedded within mobile experiences</span>
-      </div>
-      <div class="cs-scope-item">
-        <span class="cs-scope-label">Influence</span>
-        <span class="cs-scope-value">Defined the squad operating model, later adopted by two additional business units</span>
-      </div>
-    </div>
-  </section>
+    <!-- Platform Harmonization & Revenue Impact -->
+    <section class="cs-section cs-section-alt container">
+      <span class="cs-label">Audible Native Apps</span>
+      <h2 class="cs-heading">Platform Harmonization & Revenue Impact</h2>
+      <p class="cs-intro">Audible's app home experience was fragmented and visually inconsistent across platforms. Simultaneously, premium originals represented only 10% of listening, creating an opportunity to elevate first-party content visibility.</p>
+      <p class="cs-intro cs-intro-secondary">I led the redesign of the App Home Hero as a scalable system rather than a one-off visual refresh &mdash; balancing personalization, premium presentation, and performance impact.</p>
 
-  <section>
-    <span class="cs-section-label">Strategic Challenge</span>
-    <h2 class="cs-section-title">Organizational structure was the product problem</h2>
-    <p>The real blocker wasn't design quality — it was how teams were organized. Competing KPIs across siloed teams created misaligned incentives. No single group owned the end-to-end user experience. Features were designed in isolation, reviewed through disconnected approval chains, and shipped slowly. The product suffered not from a lack of ideas, but from a delivery model that couldn't execute on them.</p>
-  </section>
+      <div class="impact-grid impact-grid-3col">
+        <div class="impact-metric">
+          <span class="impact-delta">+13.89%</span>
+          <span class="impact-label">Originals Listening</span>
+        </div>
+        <div class="impact-metric">
+          <span class="impact-delta">+2.14%</span>
+          <span class="impact-label">Revenue Lift</span>
+        </div>
+        <div class="impact-metric">
+          <span class="impact-delta">+0.64%</span>
+          <span class="impact-label">Listening Days</span>
+        </div>
+      </div>
 
-  <section>
-    <span class="cs-section-label">Strategic Moves</span>
-    <ul>
-      <li>Championed and stood up a dedicated cross-functional squad — a new operating model at Audible — with embedded Design, Engineering, Product, and Data Science under unified leadership</li>
-      <li>Partnered with Product leadership to establish a shared design vision built on four pillars: emerging business models, streamlined discovery, modernized visual language, and personalization</li>
-      <li>Drove a rapid experimentation cadence — 12 A/B tests in a single quarter — replacing slow waterfall releases with validated, incremental delivery</li>
-      <li>Established pulse surveys to track team health and demonstrated measurable sentiment improvement, building organizational evidence for the model</li>
-    </ul>
-  </section>
+      <span class="cs-sublabel">Focus Areas</span>
 
-  <section>
-    <span class="cs-section-label">Impact</span>
-    <div class="cs-metrics">
-      <div class="cs-metric">
-        <span class="cs-metric-value">+3.5%</span>
-        <span class="cs-metric-label">Total revenue</span>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>Platform Harmonization Across Native Surfaces</h3>
+          <p>Addressed UI/UX inconsistencies between iOS and Android and reduced architectural fragmentation across discovery surfaces. Established scalable navigation and content presentation patterns to support premium growth without increasing cognitive load.</p>
+        </div>
+        <div class="feature">
+          <h3>Experimentation-Led Experience Evolution</h3>
+          <p>Structured multivariate testing around App Home Hero treatments to validate business impact before scaling. Balanced personalization, revenue sensitivity, and first-party visibility while protecting third-party relationships.</p>
+          <p class="feature-aside">This shifted design from visual execution to revenue-influencing experimentation.</p>
+        </div>
+        <div class="feature">
+          <h3>Component Strategy & Technical Debt Reduction</h3>
+          <p>Faced with a 22-week build estimate for a fully componentized hero system, I led a simplified experimentation path that reduced implementation to 8 weeks &mdash; accelerating speed to market while validating long-term architectural direction.</p>
+          <p class="feature-aside">This enabled iterative learning before committing to full system overhaul.</p>
+        </div>
+        <div class="feature">
+          <h3>Organizational Realignment for Velocity</h3>
+          <p>Restructured design within product-aligned scrum teams to reduce siloed waterfall delivery. Partnered with Product and Engineering leadership on collaborative roadmap prioritization, aligning highest-impact initiatives with lowest technical cost.</p>
+          <p class="feature-aside">This reduced feature timelines that previously spanned 6&ndash;9 months and strengthened cross-functional accountability.</p>
+        </div>
       </div>
-      <div class="cs-metric">
-        <span class="cs-metric-value">+14%</span>
-        <span class="cs-metric-label">Originals listening</span>
-      </div>
-      <div class="cs-metric">
-        <span class="cs-metric-value">36%</span>
-        <span class="cs-metric-label">Faster than projected delivery</span>
-      </div>
-      <div class="cs-metric">
-        <span class="cs-metric-value">2 BUs</span>
-        <span class="cs-metric-label">Adopted the squad model within 9 months</span>
-      </div>
-    </div>
-    <p>Beyond metrics, the squad model became proof that design-led organizational change could accelerate product delivery. Leadership cited it as a template for future team structures across Audible.</p>
-  </section>
+    </section>
 
-  <section>
-    <span class="cs-section-label">Selected Visual Evidence</span>
-    <div class="cs-visuals">
-      <div class="cs-visual">
-        <img src="/images/projects/audible-tile.png" alt="Audible app redesign — home experience" />
-        <span class="cs-visual-caption">Redesigned home experience with elevated content discovery and Originals positioning</span>
-      </div>
-    </div>
-  </section>
+    <ContactCTA />
 
-</CaseStudyLayout>
+  </article>
+</BaseLayout>
+
+<style>
+  /* Page Gradient */
+  .case-study {
+    background: linear-gradient(180deg, #f0e6db 0%, #f4f0eb 35%, #eef1f5 65%, #f7f5f2 100%);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 8rem 0 5rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-logo {
+    height: 84px;
+    width: auto;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: -0.5rem;
+  }
+
+  .meta-detail {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .meta-sep {
+    font-size: 0.8rem;
+    color: var(--color-border);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-copy > p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  /* Hero Visual */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-device-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
+  /* Section */
+  .cs-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .cs-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .cs-heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  .cs-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 42rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .cs-intro-secondary {
+    margin-top: -2.5rem;
+  }
+
+  .cs-section-alt {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cs-sublabel {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Features Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .feature h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .feature p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .feature-aside {
+    margin-top: 0.5rem;
+    font-style: italic;
+    opacity: 0.75;
+  }
+
+  /* Impact */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem 4rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .impact-grid-3col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .impact-metric {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .impact-delta {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--color-text);
+  }
+
+  .impact-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin-top: 0.75rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero {
+      padding: 5rem 0 3rem;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .impact-grid {
+      gap: 2.5rem 2rem;
+    }
+
+    .impact-grid-3col {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

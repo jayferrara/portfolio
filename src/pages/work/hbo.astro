@@ -1,93 +1,284 @@
 ---
-import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
 ---
 
-<CaseStudyLayout org="HBO" role="Lead UX Designer" year="2015–2019">
+<BaseLayout title="HBO — Jason Ferrara">
+  <article class="case-study">
 
-  <section>
-    <span class="cs-section-label">Context</span>
-    <h2 class="cs-section-title">A premium brand navigating the streaming transition</h2>
-    <p>HBO was shifting from a linear cable model to direct-to-consumer streaming with HBO NOW and HBO GO. The product experience hadn't kept pace — rigid information architecture, limited content discovery, and no connected-TV design language. Then AT&T acquired Time Warner, and everything had to be re-evaluated against an eventual HBO Max launch.</p>
-  </section>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <img src="/images/hbo/HBO_logo.svg" alt="HBO" class="hero-logo" />
+          <h1>Scaling HBO's Transition to Streaming</h1>
+          <div class="hero-meta">
+            <span class="meta-detail">UX Design Manager</span>
+            <span class="meta-sep">/</span>
+            <span class="meta-detail">2013&ndash;2019</span>
+          </div>
+          <p>HBO was undergoing a fundamental shift &mdash; from premium cable network to direct-to-consumer streaming platform. The organization was evolving from linear programming to on-demand digital experiences across web, mobile, and connected TV ecosystems.</p>
+          <p>I led a team of designers responsible for content discovery and playback experiences during the launch and expansion of HBO NOW, helping establish the cross-device foundations that later evolved into HBO Max.</p>
+          <p>HBO NOW launched across <strong>20+ device ecosystems</strong>, requiring cohesive experience standards across web, native mobile, and connected television platforms.</p>
+        </div>
+        <div class="hero-visual">
+          <img src="/images/projects/hbo-ia-hero.png" alt="HBO NOW — redesigned connected TV top shelf" class="hero-device-img" />
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <span class="cs-section-label">My Scope</span>
-    <div class="cs-scope-grid">
-      <div class="cs-scope-item">
-        <span class="cs-scope-label">Team</span>
-        <span class="cs-scope-value">4 UX designers, UX research, photo retouching team, cross-functional partners in Product, Engineering, and Programming</span>
-      </div>
-      <div class="cs-scope-item">
-        <span class="cs-scope-label">Reporting</span>
-        <span class="cs-scope-value">UX Lead reporting to VP of Product</span>
-      </div>
-      <div class="cs-scope-item">
-        <span class="cs-scope-label">Org Placement</span>
-        <span class="cs-scope-value">Central product design within HBO Digital Products</span>
-      </div>
-      <div class="cs-scope-item">
-        <span class="cs-scope-label">Influence</span>
-        <span class="cs-scope-value">Cross-platform — owned experience across desktop, mobile, tablet, and connected TV</span>
-      </div>
-    </div>
-  </section>
+    <!-- Cross-Device Platform Scale -->
+    <section class="cs-section cs-section-alt container">
+      <span class="cs-label">Cross-Device Platform Scale</span>
+      <h2 class="cs-heading">Cross-Device Platform Scale</h2>
+      <p class="cs-intro">The transition to streaming required more than feature delivery &mdash; it required architectural clarity across devices with fundamentally different interaction models.</p>
+      <p class="cs-intro cs-intro-secondary">I led the development of scalable information architecture and cross-device UX standards to ensure consistency while respecting the nuances of each platform.</p>
 
-  <section>
-    <span class="cs-section-label">Strategic Challenge</span>
-    <h2 class="cs-section-title">A content library users couldn't navigate</h2>
-    <p>HBO's content catalog was world-class, but its digital experience made discovery nearly impossible. The information architecture was rigid — content lived in silos that didn't map to how users actually thought about shows, movies, and specials. Programming teams resisted navigation changes that threatened their "top-tier" positioning. Meanwhile, the average streaming user spent 7.4 minutes just trying to find something to watch.</p>
-  </section>
+      <div class="impact-grid impact-grid-3col">
+        <div class="impact-metric">
+          <span class="impact-delta">20+</span>
+          <span class="impact-label">Device Ecosystems Supported</span>
+        </div>
+        <div class="impact-metric">
+          <span class="impact-delta">5</span>
+          <span class="impact-label">Designers Led at Peak</span>
+        </div>
+        <div class="impact-metric">
+          <span class="impact-delta">Multi-Surface</span>
+          <span class="impact-label">Web, Mobile, Connected TV</span>
+        </div>
+      </div>
 
-  <section>
-    <span class="cs-section-label">Strategic Moves</span>
-    <ul>
-      <li>Led a platform-wide information architecture overhaul — introduced card sorting and tree testing to validate a flexible, user-centered navigation model that added 10 new genres and shifted from 1:1 to many-to-many content tagging</li>
-      <li>Designed and prototyped a digital channel surfing feature that converted the catalog into surfable channels, reducing decision fatigue — concept received U.S. Patent #11,006,182</li>
-      <li>Served as Apple launch partner for tvOS — led dynamic video backgrounds, parallax focus tiles (LCR format), and batch automation tooling for layered key art across the entire HBO catalog</li>
-      <li>Shipped an interactive video player for VICE News Tonight, enabling secondary content (video, infographics, documents) alongside primary segments — framework adopted by other HBO programs for 2+ years</li>
-      <li>Managed stakeholder alignment across Programming, Marketing, and Technology — navigating organizational resistance through research evidence and incremental pilots</li>
-    </ul>
-  </section>
+      <span class="cs-sublabel">Focus Areas</span>
 
-  <section>
-    <span class="cs-section-label">Impact</span>
-    <div class="cs-metrics">
-      <div class="cs-metric">
-        <span class="cs-metric-value">4x</span>
-        <span class="cs-metric-label">Content discoverability increase</span>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>Cross-Device Experience Architecture</h3>
+          <p>Defined scalable navigation and content discovery frameworks that adapted across desktop, native mobile, and connected TV environments. Established shared patterns that reduced fragmentation and created a cohesive HBO experience regardless of device.</p>
+        </div>
+        <div class="feature">
+          <h3>Streaming Discovery & Playback Optimization</h3>
+          <p>Led design of core discovery and playback features that supported the transition from linear browsing to on-demand streaming. Balanced editorial storytelling with usability and performance requirements across platforms.</p>
+        </div>
+        <div class="feature">
+          <h3>HBO NOW Launch & Expansion</h3>
+          <p>Directed cross-platform design delivery for HBO NOW, ensuring cohesive execution across 20+ device ecosystems. Navigated platform constraints, certification requirements, and evolving streaming standards during a high-visibility product launch.</p>
+        </div>
+        <div class="feature">
+          <h3>Organizational Maturation</h3>
+          <p>Managed and mentored a team of five designers during rapid platform expansion. Established quality standards, strengthened cross-functional collaboration with Product and Engineering, and increased design credibility during HBO's digital transformation.</p>
+        </div>
       </div>
-      <div class="cs-metric">
-        <span class="cs-metric-value">1</span>
-        <span class="cs-metric-label">U.S. Patent granted</span>
-      </div>
-      <div class="cs-metric">
-        <span class="cs-metric-value">4</span>
-        <span class="cs-metric-label">Major shipped initiatives</span>
-      </div>
-      <div class="cs-metric">
-        <span class="cs-metric-value">5</span>
-        <span class="cs-metric-label">Platforms redesigned</span>
-      </div>
-    </div>
-    <p>The IA overhaul fundamentally changed how users discovered HBO content — a show like Last Week Tonight became findable in 12 locations vs. 3 previously. The interactive player framework outlived the original VICE partnership, becoming a reusable tool for editorial teams. The tvOS launch established HBO's first native connected-TV design language.</p>
-  </section>
+    </section>
 
-  <section>
-    <span class="cs-section-label">Selected Visual Evidence</span>
-    <div class="cs-visuals">
-      <div class="cs-visual">
-        <img src="/images/projects/hbo-ia-hero.png" alt="HBO NOW — redesigned connected TV top shelf" />
-        <span class="cs-visual-caption">Redesigned HBO NOW top shelf on Apple TV after information architecture overhaul</span>
-      </div>
-      <div class="cs-visual">
-        <img src="/images/projects/hbo-ia-diagram.png" alt="HBO information architecture diagram" />
-        <span class="cs-visual-caption">Revised information architecture enabling flexible, multi-path content discovery</span>
-      </div>
-      <div class="cs-visual">
-        <img src="/images/projects/hbo-surf-wires.jpg" alt="Digital channel surfing wireframes" />
-        <span class="cs-visual-caption">Wireframes for the patented digital channel surfing feature on connected TV</span>
-      </div>
-    </div>
-  </section>
+    <ContactCTA />
 
-</CaseStudyLayout>
+  </article>
+</BaseLayout>
+
+<style>
+  /* Page Gradient */
+  .case-study {
+    background: linear-gradient(180deg, #d9dce6 0%, #edeef3 35%, #f0eee9 65%, #f7f5f2 100%);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 8rem 0 5rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-logo {
+    height: 35px;
+    width: auto;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: -0.5rem;
+  }
+
+  .meta-detail {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .meta-sep {
+    font-size: 0.8rem;
+    color: var(--color-border);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-copy > p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  /* Hero Visual */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-device-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
+  /* Section */
+  .cs-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .cs-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .cs-heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  .cs-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 42rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .cs-intro-secondary {
+    margin-top: -2.5rem;
+  }
+
+  .cs-section-alt {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cs-sublabel {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Features Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .feature h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .feature p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  /* Impact */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem 4rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .impact-grid-3col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .impact-metric {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .impact-delta {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--color-text);
+  }
+
+  .impact-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin-top: 0.75rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero {
+      padding: 5rem 0 3rem;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .impact-grid {
+      gap: 2.5rem 2rem;
+    }
+
+    .impact-grid-3col {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
