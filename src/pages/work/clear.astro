@@ -21,73 +21,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <p>Today, CLEAR1 supports <strong>120+ partners</strong> across healthcare, workforce, financial services, and consumer ecosystems.</p>
         </div>
         <div class="hero-visual">
-          <div class="device-composite">
-            <div class="device device-mobile">
-              <div class="device-bar">
-                <span class="device-dot"></span>
-                <span class="device-dot"></span>
-                <span class="device-dot"></span>
-              </div>
-              <div class="device-screen">
-                <div class="screen-placeholder">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="24" cy="18" r="10" stroke="currentColor" stroke-width="1.5"/>
-                    <path d="M18 16C18 16 20 22 24 22C28 22 30 16 30 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    <rect x="14" y="32" width="20" height="6" rx="3" stroke="currentColor" stroke-width="1.5"/>
-                    <rect x="10" y="42" width="28" height="2" rx="1" fill="currentColor" opacity="0.15"/>
-                  </svg>
-                  <span>Verification Flow</span>
-                </div>
-              </div>
-            </div>
-            <div class="device device-dashboard">
-              <div class="device-bar">
-                <span class="device-dot"></span>
-                <span class="device-dot"></span>
-                <span class="device-dot"></span>
-              </div>
-              <div class="device-screen">
-                <div class="screen-placeholder">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="4" y="4" width="18" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                    <rect x="26" y="4" width="18" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                    <rect x="4" y="18" width="40" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                    <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-                    <line x1="4" y1="28" x2="44" y2="28" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-                    <rect x="4" y="38" width="12" height="6" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                    <rect x="20" y="38" width="12" height="6" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                  </svg>
-                  <span>Console Dashboard</span>
-                </div>
-              </div>
-            </div>
-            <div class="device device-detail">
-              <div class="device-bar">
-                <span class="device-dot"></span>
-                <span class="device-dot"></span>
-                <span class="device-dot"></span>
-              </div>
-              <div class="device-screen">
-                <div class="screen-placeholder">
-                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="16" cy="14" r="8" stroke="currentColor" stroke-width="1.5"/>
-                    <path d="M28 8h16M28 14h12M28 20h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-                    <line x1="4" y1="28" x2="44" y2="28" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-                    <rect x="4" y="32" width="40" height="4" rx="2" fill="currentColor" opacity="0.08"/>
-                    <rect x="4" y="40" width="28" height="4" rx="2" fill="currentColor" opacity="0.08"/>
-                  </svg>
-                  <span>Verification Detail</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img src="/images/clear/DevicePortrait_C1.png" alt="CLEAR verification flow on mobile device" class="hero-device-img" />
         </div>
       </div>
     </section>
 
     <!-- Evolving the Verification Flow -->
     <section class="cs-section cs-section-alt container">
-      <h2 class="cs-heading">Evolving the Verification Flow</h2>
+      <span class="cs-label">Consumer Verification</span>
+      <h2 class="cs-heading">Consumer Flow Enhancements</h2>
       <p class="cs-intro">Identity verification depends on trust, speed, and precision across a complex set of backend dependencies. I led efforts to streamline CLEAR's consumer verification lifecycle by addressing not only the front-end journey, but the underlying orchestration of identity checks, failure states, and recovery paths. By reducing systemic friction across the end-to-end flow, we improved completion rates and shortened verification time while strengthening user confidence at critical moments.</p>
 
       <div class="impact-grid impact-grid-3col">
@@ -112,14 +54,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <div class="features-grid">
         <div class="feature">
+          <div class="feature-image">
+            <img src="/images/clear/Selfie.png" alt="CLEAR biometric capture — selfie verification flow" />
+          </div>
           <h3>Biometric Capture Optimization</h3>
           <p>Redesigned the biometric capture sequence to reduce user hesitation and technical failure. Introduced real-time guidance overlays, environmental quality checks, and progressive disclosure of instructions — resulting in higher first-attempt success rates across device types.</p>
         </div>
         <div class="feature">
+          <div class="feature-image">
+            <img src="/images/clear/Consent.png" alt="CLEAR consent and data-sharing screen" />
+          </div>
           <h3>Trust & Consent Reframing</h3>
           <p>Reframed consent and data-sharing screens from legal formality into moments of transparency. Simplified language, introduced contextual explanations of why each permission matters, and designed progressive consent flows that built user confidence instead of triggering abandonment.</p>
         </div>
         <div class="feature">
+          <div class="feature-image">
+            <img src="/images/clear/Error.png" alt="CLEAR intelligent error recovery flow" />
+          </div>
           <h3>Intelligent Error Recovery</h3>
           <p>Mapped failure states across the verification pipeline and designed contextual recovery paths that adapt to the type and severity of each error. Replaced generic dead-ends with guided re-entry points — reducing drop-off at critical failure moments and keeping users in-flow.</p>
         </div>
@@ -132,23 +83,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p class="cs-intro">As CLEAR expanded into a multi-vertical B2B2C identity platform, partner organizations required scalable operational tooling to manage verification workflows, compliance, and performance. Existing systems were fragmented and insufficient for enterprise growth.</p>
       <p class="cs-intro cs-intro-secondary">I am currently leading the effort for transforming the Partner Console into a unified, enterprise-grade operational platform. This effort represented approximately 75% of the product roadmap over two quarters and required close partnership with Sales, Customer Success, and Solutions Engineering to align platform capabilities with commercial expansion goals; along with Product and Engineering.</p>
 
-      <div class="impact-grid">
+      <div class="impact-grid impact-grid-3col">
         <div class="impact-metric">
           <span class="impact-delta">120+</span>
           <span class="impact-label">Enterprise Partners Supported</span>
           <span class="impact-range">Up from 1</span>
         </div>
         <div class="impact-metric">
-          <span class="impact-delta">X%</span>
+          <span class="impact-delta">&minus;21%</span>
           <span class="impact-label">Reduction in Partner Onboarding Time</span>
         </div>
         <div class="impact-metric">
-          <span class="impact-delta">X%</span>
+          <span class="impact-delta">&minus;42%</span>
           <span class="impact-label">Decrease in Operational Escalations</span>
-        </div>
-        <div class="impact-metric">
-          <span class="impact-delta">Xx</span>
-          <span class="impact-label">Increase in Partner Activation Throughput</span>
         </div>
       </div>
 
@@ -156,8 +103,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <div class="features-grid">
         <div class="feature">
-          <h3>Flexible Identity Orchestration</h3>
-          <p>Reframed project configuration from rigid, step-based flows to a flexible orchestration model that separated checks from user steps. This enabled more granular decisioning, supported waterfall logic, and created a scalable foundation for introducing new verification capabilities without increasing user friction.</p>
+          <h3>Configurable Identity Platform</h3>
+          <p>Transformed project setup from rigid, linear workflows into a configurable identity platform powered by modular checks and use-case–based templates. This shift enabled partners to launch with one-click configuration aligned to common industry needs while retaining granular control over verification logic. The result was faster onboarding, reduced engineering dependency, and a scalable framework for continuous capability expansion.</p>
         </div>
         <div class="feature">
           <h3>Operational Transparency & Risk Insight</h3>
@@ -186,7 +133,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 4rem;
     align-items: center;
   }
@@ -309,77 +256,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     font-weight: 600;
   }
 
-  /* Device Composite */
-  .device-composite {
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    grid-template-rows: auto auto;
-    gap: 1rem;
-  }
-
-  .device {
-    background: #fff;
-    border-radius: 10px;
-    border: 1px solid var(--color-border);
-    overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  }
-
-  .device-bar {
+  /* Hero Device Image */
+  .hero-visual {
     display: flex;
-    gap: 5px;
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--color-border);
-    background: var(--color-card-bg);
-  }
-
-  .device-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--color-border);
-  }
-
-  .device-screen {
-    padding: 1.25rem;
-  }
-
-  .screen-placeholder {
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 0.5rem;
-    color: var(--color-text-secondary);
   }
 
-  .screen-placeholder svg {
-    width: 48px;
-    height: 48px;
-    opacity: 0.5;
-  }
-
-  .screen-placeholder span {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    opacity: 0.5;
-  }
-
-  .device-mobile {
-    grid-row: 1 / 3;
-  }
-
-  .device-mobile .device-screen {
-    padding: 2.5rem 1.25rem;
-  }
-
-  .device-dashboard {
-    grid-column: 2;
-  }
-
-  .device-detail {
-    grid-column: 2;
+  .hero-device-img {
+    width: 110%;
+    height: auto;
+    display: block;
   }
 
   /* Section */
@@ -439,6 +326,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+  }
+
+  .feature-image {
+    margin-bottom: 1.25rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .feature-image img {
+    width: 70%;
+    display: block;
   }
 
   .feature h3 {
@@ -515,10 +413,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   @media (max-width: 700px) {
-    .device-composite {
-      grid-template-columns: 1fr 1.4fr;
-    }
-
     .features-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
