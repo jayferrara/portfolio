@@ -5,30 +5,23 @@ const orgs = [
   {
     name: 'CLEAR',
     role: 'Director, Product Design',
-    image: '/images/projects/clear-tile.jpg',
+    image: '/images/home/CLEAR_Tile.png',
     description: 'Led biometric identity verification design across consumer and enterprise platforms, scaling secure experiences to millions of travelers.',
     href: '/work/clear',
   },
   {
     name: 'Audible',
     role: 'Director, User Experience',
-    image: '/images/projects/audible-tile.png',
+    image: '/images/home/Audible_Tile.png',
     description: 'Drove a full UX revamp that increased total revenue 3.5% and Originals listening 14%. Pioneered a cross-functional squad model adopted across business units.',
     href: '/work/audible',
   },
   {
     name: 'HBO',
     role: 'Lead UX Designer',
-    image: '/images/projects/hbo-surf-tile.jpg',
+    image: '/images/home/HBO_Tile.png',
     description: 'Shipped 4 major product initiatives including a patented content discovery feature, platform-wide IA overhaul, Apple tvOS launch, and interactive video player.',
     href: '/work/hbo',
-  },
-  {
-    name: 'Discovery',
-    role: 'UX Designer',
-    image: '/images/projects/discovery-tile.jpg',
-    description: 'Built a cross-platform design system unifying the experience across Discovery\'s portfolio of streaming brands and connected devices.',
-    href: '/work/discovery',
   },
 ];
 ---
@@ -36,81 +29,37 @@ const orgs = [
 <BaseLayout>
   <section class="hero-block">
     <div class="hero-inner container">
-      <h1>Product Design Leader</h1>
+      <h1>Jason Ferrara</h1>
+      <p class="hero-role">Product Design Leader</p>
       <p class="hero-subtitle">I lead experience vision, influence product roadmaps, and scale design organizations across complex multi-surface platforms.</p>
-    </div>
-    <div class="pillars container">
-      <div class="pillars-grid">
-      <div class="pillar">
-        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="20" width="12" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
-          <rect x="18" y="8" width="12" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
-          <rect x="32" y="14" width="12" height="26" rx="2" stroke="currentColor" stroke-width="2"/>
-          <path d="M10 4L24 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M24 4L38 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 3"/>
-          <circle cx="10" cy="4" r="2" fill="currentColor"/>
-          <circle cx="24" cy="4" r="2" fill="currentColor"/>
-          <circle cx="38" cy="4" r="2" fill="currentColor"/>
-        </svg>
-        <h3>Platform & Ecosystem Transformation</h3>
-        <p>Scaling multi-surface systems across consumer and enterprise contexts.</p>
-      </div>
-      <div class="pillar">
-        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
-          <path d="M12 24C12 24 16 18 24 18C32 18 36 24 36 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M12 24C12 24 16 30 24 30C32 30 36 24 36 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2"/>
-          <line x1="24" y1="2" x2="24" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <line x1="24" y1="40" x2="24" y2="46" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <h3>Roadmap Influence & Alignment</h3>
-        <p>Embedding design into prioritization, experimentation, and long-term planning.</p>
-      </div>
-      <div class="pillar">
-        <svg class="pillar-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="10" r="6" stroke="currentColor" stroke-width="2"/>
-          <circle cx="10" cy="34" r="5" stroke="currentColor" stroke-width="2"/>
-          <circle cx="38" cy="34" r="5" stroke="currentColor" stroke-width="2"/>
-          <path d="M24 16V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M24 22L12 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M24 22L36 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="24" cy="22" r="2" fill="currentColor"/>
-        </svg>
-        <h3>Organizational & Team Scale</h3>
-        <p>Building operating models, governance, and design maturity.</p>
-      </div>
-      </div>
     </div>
   </section>
 
   <section class="work container">
-    <div class="work-grid">
-      {orgs.map((org) => (
-        <a href={org.href} class="org-card">
-          <div class="org-image">
-            <img src={org.image} alt={org.name} loading="lazy" />
-          </div>
-          <div class="org-content">
-            <span class="org-name">{org.name}</span>
-            <span class="org-role">{org.role}</span>
-            <p class="org-description">{org.description}</p>
-          </div>
-        </a>
-      ))}
-    </div>
+    {orgs.map((org) => (
+      <a href={org.href} class="org-card">
+        <img src={org.image} alt={org.name} class="org-bg" />
+        <span class="org-role">{org.role}</span>
+      </a>
+    ))}
   </section>
 </BaseLayout>
 
 <style>
   .hero-block {
     background: linear-gradient(180deg, #dbe4f0 0%, #ffffff 100%);
-    padding: 8rem 0 4rem;
+    padding: 5rem 0 4rem;
+    margin-top: calc(-1 * var(--nav-height));
+    padding-top: calc(5rem + var(--nav-height));
     margin-bottom: 3rem;
   }
 
   .hero-inner {
-    margin-bottom: 5rem;
+    margin-bottom: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero-block h1 {
@@ -121,6 +70,15 @@ const orgs = [
     margin-bottom: 1.5rem;
   }
 
+  .hero-role {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+  }
+
   .hero-subtitle {
     font-size: clamp(1.1rem, 2vw, 1.35rem);
     line-height: 1.5;
@@ -128,121 +86,67 @@ const orgs = [
     color: var(--color-text-secondary);
   }
 
-  .pillars {
-    padding: 0 2rem;
-  }
-
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-  }
-
-  .pillar-icon {
-    width: 48px;
-    height: 48px;
-    color: var(--color-text);
-    margin-bottom: 1.25rem;
-  }
-
-  .pillar h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .pillar p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
   .work {
     padding-bottom: 2rem;
-  }
-
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .org-card {
+    position: relative;
+    display: block;
     border-radius: 12px;
     overflow: hidden;
-    background: #fff;
-    border: 1px solid var(--color-border);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
   }
 
-  .org-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
-  }
-
-  .org-image {
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-  }
-
-  .org-image img {
+  .org-bg {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    display: block;
+    opacity: 0.4;
+    filter: saturate(0) brightness(1.15);
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
   }
 
-  .org-card:hover .org-image img {
+  .org-card:hover .org-bg {
+    opacity: 1;
+    filter: saturate(1) brightness(1);
     transform: scale(1.04);
   }
 
-  .org-content {
-    padding: 1.5rem 1.75rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .org-name {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-text);
-  }
-
   .org-role {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.25rem 1.5rem;
     font-size: 0.85rem;
-    color: var(--color-text-secondary);
-    font-weight: 500;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
-  .org-description {
-    margin-top: 0.75rem;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: var(--color-text-secondary);
+  .org-card:hover .org-role {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @media (max-width: 700px) {
-    .work-grid {
-      grid-template-columns: 1fr;
-    }
 
     .hero-block {
-      padding: 4rem 0 3rem;
+      padding: 3rem 0 3rem;
+      padding-top: calc(3rem + var(--nav-height));
       margin-bottom: 2rem;
     }
 
     .hero-inner {
-      margin-bottom: 3rem;
-    }
-
-    .pillars-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      margin-bottom: 0;
     }
   }
 </style>

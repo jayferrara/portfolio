@@ -11,6 +11,8 @@ const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
+
+const isHomepage = currentPath === '/';
 ---
 
 <html lang="en">
@@ -26,9 +28,10 @@ const navLinks = [
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <nav class="nav">
-      <div class="nav-inner container">
-        <a href="/" class="nav-logo">Jason Ferrara</a>
+    <nav class:list={['nav', { scrolled: !isHomepage }]}>
+      <div class:list={['nav-inner', 'container', { 'logo-visible': !isHomepage }]}>
+        <a href="/" class:list={['nav-logo', { visible: !isHomepage }]}>Jason Ferrara</a>
+        <span class="nav-divider"></span>
         <ul class="nav-links">
           {navLinks.map(({ label, href }) => (
             <li>
@@ -43,6 +46,7 @@ const navLinks = [
         </ul>
       </div>
     </nav>
+    <div class="nav-spacer"></div>
 
     <main>
       <slot />
@@ -54,10 +58,21 @@ const navLinks = [
       </div>
     </footer>
     <script>
-      const nav = document.querySelector('.nav');
-      if (nav) {
+      const nav = document.querySelector('.nav') as HTMLElement | null;
+      const navInner = document.querySelector('.nav-inner');
+      const navLogo = document.querySelector('.nav-logo');
+      const heroHeading = document.querySelector('.hero-block h1');
+
+      // Only add scroll behavior on the homepage (has hero heading)
+      if (nav && heroHeading && navLogo) {
         window.addEventListener('scroll', () => {
-          nav.classList.toggle('scrolled', window.scrollY > 20);
+          const headingRect = heroHeading.getBoundingClientRect();
+          const navHeight = nav.offsetHeight;
+          const pastHeading = headingRect.bottom < navHeight;
+
+          nav.classList.toggle('scrolled', pastHeading);
+          navLogo.classList.toggle('visible', pastHeading);
+          navInner?.classList.toggle('logo-visible', pastHeading);
         }, { passive: true });
       }
     </script>
@@ -70,8 +85,10 @@ const navLinks = [
 
 <style>
   .nav {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     background: transparent;
     border-bottom: 1px solid transparent;
@@ -90,14 +107,45 @@ const navLinks = [
 
   .nav-inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 0;
+    transition: gap 0.3s ease;
+  }
+
+  .nav-inner.logo-visible {
+    gap: 2rem;
   }
 
   .nav-logo {
     font-weight: 600;
     font-size: 1.125rem;
     letter-spacing: -0.02em;
+    opacity: 0;
+    transform: translateY(8px);
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.3s ease, transform 0.3s ease, max-width 0.3s ease;
+    pointer-events: none;
+  }
+
+  .nav-logo.visible {
+    opacity: 1;
+    transform: translateY(0);
+    max-width: 12rem;
+    pointer-events: auto;
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 1.25rem;
+    background: var(--color-border);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-inner.logo-visible .nav-divider {
+    opacity: 1;
   }
 
   .nav-links {
@@ -116,6 +164,10 @@ const navLinks = [
   .nav-link:hover,
   .nav-link.active {
     color: var(--color-text);
+  }
+
+  .nav-spacer {
+    height: var(--nav-height);
   }
 
   main {
