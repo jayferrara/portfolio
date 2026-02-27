@@ -5,6 +5,7 @@ const orgs = [
   {
     name: 'CLEAR',
     role: 'Director, Product Design',
+    years: '2021–2024',
     image: '/images/home/CLEAR_Tile.png',
     description: 'Led biometric identity verification design across consumer and enterprise platforms, scaling secure experiences to millions of travelers.',
     href: '/work/clear',
@@ -12,13 +13,15 @@ const orgs = [
   {
     name: 'Audible',
     role: 'Director, User Experience',
+    years: '2018–2021',
     image: '/images/home/Audible_Tile.png',
     description: 'Drove a full UX revamp that increased total revenue 3.5% and Originals listening 14%. Pioneered a cross-functional squad model adopted across business units.',
     href: '/work/audible',
   },
   {
     name: 'HBO',
-    role: 'Lead UX Designer',
+    role: 'User Experience Manager',
+    years: '2014–2018',
     image: '/images/home/HBO_Tile.png',
     description: 'Shipped 4 major product initiatives including a patented content discovery feature, platform-wide IA overhaul, Apple tvOS launch, and interactive video player.',
     href: '/work/hbo',
@@ -39,7 +42,7 @@ const orgs = [
     {orgs.map((org) => (
       <a href={org.href} class="org-card">
         <img src={org.image} alt={org.name} class="org-bg" />
-        <span class="org-role">{org.role}</span>
+        <span class="org-role">{org.role}, {org.years}</span>
       </a>
     ))}
   </section>
@@ -47,11 +50,11 @@ const orgs = [
 
 <style>
   .hero-block {
-    background: linear-gradient(180deg, #dbe4f0 0%, #ffffff 100%);
+    background: linear-gradient(180deg, #c9d8ed 0%, #ffffff 100%);
     padding: 5rem 0 4rem;
     margin-top: calc(-1 * var(--nav-height));
     padding-top: calc(5rem + var(--nav-height));
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-inner {
@@ -106,14 +109,12 @@ const orgs = [
   .org-bg {
     width: 100%;
     display: block;
-    opacity: 0.4;
-    filter: saturate(0) brightness(1.15);
-    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+    opacity: 0.85;
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
   .org-card:hover .org-bg {
     opacity: 1;
-    filter: saturate(1) brightness(1);
     transform: scale(1.04);
   }
 
@@ -126,6 +127,7 @@ const orgs = [
     font-size: 0.85rem;
     font-weight: 600;
     color: #fff;
+    text-align: center;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
     opacity: 0;
     transform: translateY(4px);
@@ -147,6 +149,15 @@ const orgs = [
 
     .hero-inner {
       margin-bottom: 0;
+    }
+
+    .org-bg {
+      opacity: 1;
+    }
+
+    .org-role {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>

@@ -29,23 +29,27 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
     <!-- Cross-Device Platform Scale -->
     <section class="cs-section cs-section-alt container">
-      <span class="cs-label">Cross-Device Platform Scale</span>
-      <h2 class="cs-heading">Cross-Device Platform Scale</h2>
-      <p class="cs-intro">The transition to streaming required more than feature delivery &mdash; it required architectural clarity across devices with fundamentally different interaction models.</p>
-      <p class="cs-intro cs-intro-secondary">I led the development of scalable information architecture and cross-device UX standards to ensure consistency while respecting the nuances of each platform.</p>
+      <div class="section-top-grid">
+        <div class="section-top-copy">
+          <span class="cs-label">Cross-Device Platform Scale</span>
+          <h2 class="cs-heading">Premium Experiences for Premium Content</h2>
+          <p class="cs-intro">The transition to streaming required more than feature delivery &mdash; it required architectural clarity across devices with fundamentally different interaction models.</p>
+          <p class="cs-intro cs-intro-secondary">I led the development of scalable information architecture and cross-device UX standards to ensure consistency while respecting the nuances of each platform.</p>
+        </div>
 
-      <div class="impact-grid impact-grid-3col">
-        <div class="impact-metric">
-          <span class="impact-delta">20+</span>
-          <span class="impact-label">Device Ecosystems Supported</span>
-        </div>
-        <div class="impact-metric">
-          <span class="impact-delta">5</span>
-          <span class="impact-label">Designers Led at Peak</span>
-        </div>
-        <div class="impact-metric">
-          <span class="impact-delta">Multi-Surface</span>
-          <span class="impact-label">Web, Mobile, Connected TV</span>
+        <div class="impact-grid-side">
+          <div class="impact-metric">
+            <span class="impact-delta">20+</span>
+            <span class="impact-label">Device Ecosystems Supported</span>
+          </div>
+          <div class="impact-metric">
+            <span class="impact-delta">5</span>
+            <span class="impact-label">Designers Led at Peak</span>
+          </div>
+          <div class="impact-metric">
+            <span class="impact-delta">Multi-Surface</span>
+            <span class="impact-label">Web, Mobile, Connected TV</span>
+          </div>
         </div>
       </div>
 
@@ -84,7 +88,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
   /* Hero */
   .hero {
-    padding: 8rem 0 5rem;
+    padding: 4.5rem 0 5rem;
   }
 
   .hero-grid {
@@ -188,6 +192,33 @@ import ContactCTA from '../../components/ContactCTA.astro';
     border-top: 1px solid var(--color-border);
   }
 
+  /* Side-by-side intro + metrics */
+  .section-top-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-top-copy .cs-intro {
+    margin-bottom: 0;
+    max-width: none;
+  }
+
+  .section-top-copy .cs-intro + .cs-intro {
+    margin-top: 1rem;
+  }
+
+  .impact-grid-side {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 2rem;
+    padding-top: 1.75rem;
+    padding-left: 4rem;
+    border-left: 1px solid var(--color-border);
+  }
+
   .cs-sublabel {
     display: block;
     font-size: 0.7rem;
@@ -239,7 +270,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
   }
 
   .impact-delta {
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(2.4rem, 4.8vw, 3.6rem);
     font-weight: 700;
     letter-spacing: -0.04em;
     line-height: 1;
@@ -268,6 +299,16 @@ import ContactCTA from '../../components/ContactCTA.astro';
   }
 
   @media (max-width: 700px) {
+    .section-top-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .impact-grid-side {
+      padding-left: 0;
+      border-left: none;
+    }
+
     .features-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
