@@ -25,12 +25,15 @@ html {
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  overflow: auto;
 }
 
 body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  overscroll-behavior: none;
 }
 
 img {

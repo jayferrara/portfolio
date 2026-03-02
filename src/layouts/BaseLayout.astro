@@ -1,18 +1,18 @@
 ---
 interface Props {
   title?: string;
+  transparentNav?: boolean;
 }
 
-const { title = 'Jason Ferrara — Product Design Director' } = Astro.props;
+const { title = 'Jason Ferrara — Product Design Director', transparentNav = false } = Astro.props;
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { label: 'Work', href: '/' },
-  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
 const isHomepage = currentPath === '/';
+const navStartsTransparent = isHomepage || transparentNav;
 ---
 
 <html lang="en">
@@ -28,7 +28,7 @@ const isHomepage = currentPath === '/';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <nav class:list={['nav', { scrolled: !isHomepage }]}>
+    <nav class:list={['nav', { scrolled: !navStartsTransparent }]}>
       <div class:list={['nav-inner', 'container', { 'logo-visible': !isHomepage }]}>
         <a href="/" class:list={['nav-logo', { visible: !isHomepage }]}>Jason Ferrara</a>
         <span class="nav-divider"></span>
@@ -46,7 +46,7 @@ const isHomepage = currentPath === '/';
         </ul>
       </div>
     </nav>
-    <div class="nav-spacer"></div>
+    {!navStartsTransparent && <div class="nav-spacer"></div>}
 
     <main>
       <slot />
@@ -62,18 +62,27 @@ const isHomepage = currentPath === '/';
       const navInner = document.querySelector('.nav-inner');
       const navLogo = document.querySelector('.nav-logo');
       const heroHeading = document.querySelector('.hero-block h1');
+      const caseStudyHero = document.querySelector('.case-study .hero');
 
-      // Only add scroll behavior on the homepage (has hero heading)
-      if (nav && heroHeading && navLogo) {
-        window.addEventListener('scroll', () => {
-          const headingRect = heroHeading.getBoundingClientRect();
-          const navHeight = nav.offsetHeight;
-          const pastHeading = headingRect.bottom < navHeight;
+      if (nav && navLogo) {
+        if (heroHeading) {
+          // Homepage: toggle nav on scroll past hero heading
+          window.addEventListener('scroll', () => {
+            const headingRect = heroHeading.getBoundingClientRect();
+            const navHeight = nav.offsetHeight;
+            const pastHeading = headingRect.bottom < navHeight;
 
-          nav.classList.toggle('scrolled', pastHeading);
-          navLogo.classList.toggle('visible', pastHeading);
-          navInner?.classList.toggle('logo-visible', pastHeading);
-        }, { passive: true });
+            nav.classList.toggle('scrolled', pastHeading);
+            navLogo.classList.toggle('visible', pastHeading);
+            navInner?.classList.toggle('logo-visible', pastHeading);
+          }, { passive: true });
+        } else if (caseStudyHero || !nav.classList.contains('scrolled')) {
+          // Transparent nav pages: toggle nav background on scroll (logo stays visible)
+          window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY > 1;
+            nav.classList.toggle('scrolled', scrolled);
+          }, { passive: true });
+        }
       }
     </script>
   </body>

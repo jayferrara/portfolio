@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
 
 const orgs = [
   {
@@ -30,30 +31,54 @@ const orgs = [
 ---
 
 <BaseLayout>
-  <section class="hero-block">
-    <div class="hero-inner container">
-      <h1>Jason Ferrara</h1>
-      <p class="hero-role">Product Design Leader</p>
-      <p class="hero-subtitle">I lead experience vision, influence product roadmaps, and scale design organizations across complex multi-surface platforms.</p>
-    </div>
-  </section>
+  <div class="page-gradient">
+    <section class="hero-block">
+      <div class="hero-inner container">
+        <h1>Jason Ferrara</h1>
+        <p class="hero-role">Product Design Leader</p>
+        <p class="hero-subtitle">I lead with a clear vision for the experience. I bring structure to complexity, align people around what matters, and build platforms that are built to grow.</p>
+      </div>
+    </section>
 
-  <section class="work container">
-    {orgs.map((org) => (
-      <a href={org.href} class="org-card">
-        <img src={org.image} alt={org.name} class="org-bg" />
-        <span class="org-role">{org.role}, {org.years}</span>
-      </a>
-    ))}
-  </section>
+    <section class="work container">
+      {orgs.map((org) => (
+        <a href={org.href} class="org-card">
+          <img src={org.image} alt={org.name} class="org-bg" />
+          <span class="org-role">{org.role}, {org.years}</span>
+        </a>
+      ))}
+    </section>
+
+    <ContactCTA />
+  </div>
 </BaseLayout>
 
+<style is:global>
+  html {
+    background: #f7f5f2 !important;
+  }
+</style>
+
 <style>
+  .page-gradient {
+    position: relative;
+    background: linear-gradient(180deg, #c9d8ed 0%, #e0e4ed 30%, #eef0f0 60%, #f7f5f2 100%);
+  }
+
+  .page-gradient::before {
+    content: '';
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: #c9d8ed;
+  }
+
   .hero-block {
-    background: linear-gradient(180deg, #c9d8ed 0%, #ffffff 100%);
-    padding: 5rem 0 4rem;
+    padding: 7rem 0 4rem;
     margin-top: calc(-1 * var(--nav-height));
-    padding-top: calc(5rem + var(--nav-height));
+    padding-top: calc(7rem + var(--nav-height));
     margin-bottom: 1.5rem;
   }
 
@@ -90,6 +115,7 @@ const orgs = [
   }
 
   .work {
+    padding-top: 1.5rem;
     padding-bottom: 2rem;
     display: flex;
     flex-direction: column;

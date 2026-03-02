@@ -1,18 +1,54 @@
+---
+interface Props {
+  variant?: 'default' | 'case-study';
+}
+
+const { variant = 'default' } = Astro.props;
+---
+
 <section class="cta-module">
-  <div class="container">
-    <h2 class="cta-title">There's more behind this work.</h2>
-    <p class="cta-body">What's shown here is the visible outcome. The real impact came from aligning teams, simplifying complexity, and making hard prioritization calls under pressure.</p>
-    <p class="cta-body">If you're exploring what strong product design leadership looks like in practice, I'd welcome the conversation.</p>
-    <a href="mailto:jsferrara@gmail.com" class="cta-button">Drop Me a Line</a>
+  <div class:list={['cta-inner', { 'cta-card': variant === 'case-study' }]}>
+    {variant === 'case-study' ? (
+      <>
+        <h2 class="cta-title">Want to Go Deeper?</h2>
+        <p class="cta-body">This overview only scratches the surface. I'm always open to discussing the decisions, constraints, and collaboration that shaped the work in detail.</p>
+      </>
+    ) : (
+      <>
+        <h2 class="cta-title">Let's Connect</h2>
+        <p class="cta-body">Most of my work happens at moments of change; when platforms are evolving and clarity matters.</p>
+        <p class="cta-body">If that sounds familiar, I'd be glad to connect.</p>
+      </>
+    )}
+    <div class="cta-links">
+      <a href="mailto:jsferrara@gmail.com" class="cta-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        jsferrara@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/jason-ferrara-ux/" target="_blank" rel="noopener noreferrer" class="cta-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
   </div>
 </section>
 
 <style>
   .cta-module {
+    padding: 0 2rem;
     margin-top: 2rem;
-    padding: 4rem 0;
-    border-top: 1px solid var(--color-border);
+  }
+
+  .cta-inner {
     text-align: center;
+    padding: 3.5rem 3rem;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .cta-card {
+    background: var(--color-card-bg);
+    border-radius: 16px;
   }
 
   .cta-title {
@@ -20,35 +56,50 @@
     font-weight: 500;
     letter-spacing: -0.03em;
     line-height: 1.15;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
   }
 
   .cta-body {
     font-size: 1.05rem;
     line-height: 1.7;
     color: var(--color-text-secondary);
-    max-width: 36rem;
-    margin: 0 auto 0.75rem;
+    margin-bottom: 0.25rem;
   }
 
-  .cta-body:last-of-type {
-    margin-bottom: 2rem;
+  .cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
   }
 
-  .cta-button {
-    display: inline-block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--color-bg);
-    background: var(--color-text);
-    padding: 0.75rem 1.75rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: opacity 0.2s;
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    padding: 0.65rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-  .cta-button:hover {
-    opacity: 0.8;
+  .cta-link:hover {
+    border-color: #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  @media (max-width: 700px) {
+    .cta-inner {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .cta-links {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
   }
 </style>

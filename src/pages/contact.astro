@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+---
+
+<BaseLayout title="Contact — Jason Ferrara" transparentNav>
+  <div class="page-gradient">
+    <section class="contact container">
+      <div class="contact-text">
+        <h1>I build platforms that are meant to grow.</h1>
+        <p>Over the past decade, I've worked at inflection points; when companies were shifting business models, expanding into new ecosystems, or redefining their product direction. My experience spans streaming media, subscription platforms, and enterprise identity systems.</p>
+        <p>I lead with a clear vision for the experience and a deep respect for collaboration. I care about aligning teams around what matters, simplifying complexity, and making decisions that stand the test of time.</p>
+        <p>Whether shaping a North Star, restructuring a delivery model, or refining a core product surface, my focus is the same: bring clarity to complexity and build systems that evolve with confidence.</p>
+      </div>
+      <div class="contact-photo">
+        <img src="/images/hbo/jf_got.png" alt="Jason Ferrara" />
+      </div>
+    </section>
+
+    <ContactCTA />
+  </div>
+</BaseLayout>
+
+<style is:global>
+  html {
+    background: #f7f5f2 !important;
+  }
+</style>
+
+<style>
+  .page-gradient {
+    position: relative;
+    background: linear-gradient(180deg, #c9d8ed 0%, #e0e4ed 30%, #eef0f0 60%, #f7f5f2 100%);
+  }
+
+  .page-gradient::before {
+    content: '';
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: #c9d8ed;
+  }
+
+  .contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding-top: calc(6rem + var(--nav-height));
+    padding-bottom: 4rem;
+  }
+
+  .contact-text h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-text p {
+    margin-bottom: 1rem;
+  }
+
+  .contact-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .contact-photo img {
+    width: 100%;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  @media (max-width: 700px) {
+    .contact {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .contact-photo {
+      order: -1;
+    }
+
+  }
+</style>

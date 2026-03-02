@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 ---
 
-<BaseLayout title="Audible — Jason Ferrara">
+<BaseLayout title="Audible — Jason Ferrara" transparentNav>
   <article class="case-study">
 
     <!-- Hero -->
@@ -80,20 +80,38 @@ import ContactCTA from '../../components/ContactCTA.astro';
       </div>
     </section>
 
-    <ContactCTA />
+    <ContactCTA variant="case-study" />
 
   </article>
 </BaseLayout>
 
+<style is:global>
+  html {
+    background: #f7f5f2 !important;
+  }
+</style>
+
 <style>
   /* Page Gradient */
   .case-study {
+    position: relative;
     background: linear-gradient(180deg, #f0e6db 0%, #f4f0eb 35%, #eef1f5 65%, #f7f5f2 100%);
+  }
+
+  .case-study::before {
+    content: '';
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: #f0e6db;
   }
 
   /* Hero */
   .hero {
     padding: 4.5rem 0 5rem;
+    padding-top: calc(4.5rem + var(--nav-height));
   }
 
   .hero-grid {
