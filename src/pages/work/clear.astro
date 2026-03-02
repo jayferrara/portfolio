@@ -4,6 +4,14 @@ import ContactCTA from '../../components/ContactCTA.astro';
 ---
 
 <BaseLayout title="CLEAR — Jason Ferrara" transparentNav>
+  <div class="pw-overlay" id="pw-overlay">
+    <a href="/" class="pw-close" aria-label="Go home">&times;</a>
+    <div class="pw-dialog">
+      <label class="pw-label" for="pw-input">Password</label>
+      <input type="password" id="pw-input" class="pw-input" autocomplete="off" autofocus />
+      <p class="pw-error" id="pw-error">Incorrect password</p>
+    </div>
+  </div>
   <article class="case-study">
 
     <!-- Hero -->
@@ -60,10 +68,10 @@ import ContactCTA from '../../components/ContactCTA.astro';
       <div class="features-grid">
         <div class="feature animate">
           <div class="feature-image">
-            <img src="/images/clear/Selfie.png" alt="CLEAR biometric capture — selfie verification flow" />
+            <img src="/images/clear/Selfie.png" alt="CLEAR biometric capture; selfie verification flow" />
           </div>
           <h3>Biometric Capture Optimization</h3>
-          <p>Redesigned the biometric capture sequence to reduce user hesitation and technical failure. Introduced real-time guidance overlays, environmental quality checks, and progressive disclosure of instructions — resulting in higher first-attempt success rates across device types.</p>
+          <p>Redesigned the biometric capture sequence to reduce user hesitation and technical failure. Introduced real-time guidance overlays, environmental quality checks, and progressive disclosure of instructions; resulting in higher first-attempt success rates across device types.</p>
         </div>
         <div class="feature animate" style="--delay: 0.1s">
           <div class="feature-image">
@@ -77,7 +85,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
             <img src="/images/clear/Error.png" alt="CLEAR intelligent error recovery flow" />
           </div>
           <h3>Intelligent Error Recovery</h3>
-          <p>Mapped failure states across the verification pipeline and designed contextual recovery paths that adapt to the type and severity of each error. Replaced generic dead-ends with guided re-entry points — reducing drop-off at critical failure moments and keeping users in-flow.</p>
+          <p>Mapped failure states across the verification pipeline and designed contextual recovery paths that adapt to the type and severity of each error. Replaced generic dead-ends with guided re-entry points; reducing drop-off at critical failure moments and keeping users in-flow.</p>
         </div>
       </div>
     </section>
@@ -151,9 +159,96 @@ import ContactCTA from '../../components/ContactCTA.astro';
   html {
     background: #f7f5f2 !important;
   }
+
+  body.pw-locked {
+    overflow: hidden;
+  }
 </style>
 
 <style>
+  /* Password Overlay */
+  .pw-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    transition: opacity 0.3s ease;
+  }
+
+  .pw-overlay.dismissed {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .pw-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+
+  .pw-close:hover {
+    opacity: 1;
+  }
+
+  .pw-dialog {
+    text-align: center;
+  }
+
+  .pw-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .pw-input {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    padding: 0.7rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--color-text);
+    outline: none;
+    width: 16rem;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+
+  .pw-input:focus {
+    border-color: #aaa;
+  }
+
+  .pw-input.error {
+    border-color: #c44;
+  }
+
+  .pw-error {
+    font-size: 0.8rem;
+    color: #c44;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .pw-error.show {
+    opacity: 1;
+  }
+
   /* Page Gradient */
   .case-study {
     position: relative;
@@ -656,6 +751,38 @@ import ContactCTA from '../../components/ContactCTA.astro';
 </style>
 
 <script>
+  // Password gate
+  const overlay = document.getElementById('pw-overlay');
+  const pwInput = document.getElementById('pw-input') as HTMLInputElement | null;
+  const pwError = document.getElementById('pw-error');
+
+  if (overlay && pwInput && pwError) {
+    if (sessionStorage.getItem('clear-unlocked') === '1') {
+      overlay.remove();
+    } else {
+      document.body.classList.add('pw-locked');
+      pwInput.focus();
+
+      pwInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          if (pwInput.value.toLowerCase().trim() === 'evergreen') {
+            sessionStorage.setItem('clear-unlocked', '1');
+            document.body.classList.remove('pw-locked');
+            overlay.classList.add('dismissed');
+            setTimeout(() => overlay.remove(), 300);
+          } else {
+            pwInput.classList.add('error');
+            pwError.classList.add('show');
+            setTimeout(() => {
+              pwInput.classList.remove('error');
+              pwError.classList.remove('show');
+            }, 1500);
+          }
+        }
+      });
+    }
+  }
+
   const showcase = document.getElementById('partner-showcase');
   if (showcase) {
     const screens = showcase.querySelectorAll<HTMLElement>('.screen-img');

@@ -11,6 +11,7 @@ import ContactCTA from '../components/ContactCTA.astro';
         <p class="animate" style="--delay: 0.1s">Over the past decade, I've worked at inflection points; when companies were shifting business models, expanding into new ecosystems, or redefining their product direction. My experience spans streaming media, subscription platforms, and enterprise identity systems.</p>
         <p class="animate" style="--delay: 0.2s">I lead with a clear vision for the experience and a deep respect for collaboration. I care about aligning teams around what matters, simplifying complexity, and making decisions that stand the test of time.</p>
         <p class="animate" style="--delay: 0.3s">Whether shaping a North Star, restructuring a delivery model, or refining a core product surface, my focus is the same: bring clarity to complexity and build systems that evolve with confidence.</p>
+        <p class="animate" style="--delay: 0.4s">I also moonlight as a <a href="/pumpkin" class="inline-link">competitive pumpkin carver</a>.</p>
       </div>
       <div class="contact-photo animate" style="--delay: 0.15s">
         <img src="/images/hbo/jf_got.png" alt="Jason Ferrara" />
@@ -62,6 +63,17 @@ import ContactCTA from '../components/ContactCTA.astro';
 
   .contact-text p:last-child {
     margin-bottom: 0;
+  }
+
+  .inline-link {
+    color: #2563eb;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  .inline-link:hover {
+    color: #1d4ed8;
   }
 
   .contact-photo img {

@@ -1,0 +1,345 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const imageFiles = import.meta.glob('/public/images/pumpkins/*.{jpg,jpeg,JPG,png,webp}', { eager: true });
+const allImages = Object.keys(imageFiles).map((p) => p.replace('/public', ''));
+
+// Display order matching jasonferraradesign.com/pumpkins
+const order = [
+  'IMG_7589',
+  'IMG_2816',
+  'IMG_7815',
+  'IMG_3330',
+  'IMG_7545',
+  'IMG_9626',
+  'IMG_4388',
+  'IMG_4404',
+  'IMG_6164_Original',
+  'IMG_6193',
+  'IMG_4141',
+  'IMG_4112',
+  'IMG_1716',
+  'IMG_8722',
+  'IMG_0531',
+  'IMG_0563',
+  'IMG_5151',
+  'IMG_0036',
+  'IMG_0248',
+  'IMG_0223',
+  'IMG_3512',
+  'IMG_2057',
+  'IMG_1096-2',
+  'IMG_1154',
+  'IMG_1184',
+  'IMG_5491',
+  'IMG_1125',
+];
+
+const images = allImages.sort((a, b) => {
+  const nameA = a.split('/').pop()!.replace(/ \(\d+\)/, '').replace(/\.\w+$/, '');
+  const nameB = b.split('/').pop()!.replace(/ \(\d+\)/, '').replace(/\.\w+$/, '');
+  const idxA = order.indexOf(nameA);
+  const idxB = order.indexOf(nameB);
+  return (idxA === -1 ? 999 : idxA) - (idxB === -1 ? 999 : idxB);
+});
+---
+
+<BaseLayout title="Adventures in Pumpkin Carving — Jason Ferrara" transparentNav>
+  <div class="page-gradient">
+    <section class="pumpkin container">
+      <h1 class="animate">Adventures in Pumpkin Carving</h1>
+      <div class="gallery">
+        {images.map((src, i) => (
+          <div class="gallery-item animate" style={`--delay: ${Math.min(0.05 * i, 0.3)}s`}>
+            <img src={src} alt="Pumpkin carving" loading="lazy" data-index={i} />
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-arrow lb-prev" id="lb-prev" aria-label="Previous">&#8249;</button>
+    <button class="lb-arrow lb-next" id="lb-next" aria-label="Next">&#8250;</button>
+    <div class="lb-img-wrap">
+      <img class="lb-img" id="lb-img" src="" alt="Pumpkin carving" />
+    </div>
+    <div class="lb-thumbs" id="lb-thumbs">
+      {images.map((src, i) => (
+        <button class="lb-thumb" data-index={i}>
+          <img src={src} alt="" loading="lazy" />
+        </button>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const lightbox = document.getElementById('lightbox')!;
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const thumbs = document.getElementById('lb-thumbs')!;
+  const galleryItems = document.querySelectorAll('.gallery-item img') as NodeListOf<HTMLImageElement>;
+  const srcs = Array.from(galleryItems).map((img) => img.src);
+  let current = 0;
+
+  function show(index: number) {
+    current = (index + srcs.length) % srcs.length;
+    lbImg.src = srcs[current];
+    thumbs.querySelectorAll('.lb-thumb').forEach((t, i) => {
+      t.classList.toggle('active', i === current);
+    });
+    // scroll active thumb into view
+    const activeThumb = thumbs.querySelector('.lb-thumb.active') as HTMLElement;
+    if (activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  function open(index: number) {
+    show(index);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  galleryItems.forEach((img) => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => open(parseInt(img.dataset.index!)));
+  });
+
+  document.getElementById('lb-close')!.addEventListener('click', close);
+  document.getElementById('lb-prev')!.addEventListener('click', () => show(current - 1));
+  document.getElementById('lb-next')!.addEventListener('click', () => show(current + 1));
+
+  thumbs.querySelectorAll('.lb-thumb').forEach((btn) => {
+    btn.addEventListener('click', () => show(parseInt((btn as HTMLElement).dataset.index!)));
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || (e.target as HTMLElement).classList.contains('lb-img-wrap')) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+</script>
+
+<style is:global>
+  html {
+    background: #f7f5f2 !important;
+  }
+</style>
+
+<style>
+  .page-gradient {
+    position: relative;
+    background: linear-gradient(180deg, #c9d8ed 0%, #e0e4ed 30%, #eef0f0 60%, #f7f5f2 100%);
+  }
+
+  .page-gradient::before {
+    content: '';
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: #c9d8ed;
+  }
+
+  .pumpkin {
+    padding-top: calc(6rem + var(--nav-height));
+    padding-bottom: 4rem;
+  }
+
+  .pumpkin h1 {
+    margin-bottom: 2rem;
+  }
+
+  .gallery {
+    columns: 3;
+    column-gap: 1rem;
+  }
+
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 900px) {
+    .gallery {
+      columns: 2;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .gallery {
+      columns: 1;
+    }
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lb-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .lb-close:hover {
+    opacity: 1;
+  }
+
+  .lb-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0.5rem;
+    line-height: 1;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+
+  .lb-arrow:hover {
+    opacity: 1;
+  }
+
+  .lb-prev {
+    left: 1rem;
+  }
+
+  .lb-next {
+    right: 1rem;
+  }
+
+  .lb-img-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 3.5rem 4rem 1rem;
+    min-height: 0;
+  }
+
+  .lb-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    transition: opacity 0.2s ease;
+  }
+
+  .lb-thumbs {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem 1.25rem;
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) transparent;
+  }
+
+  .lb-thumb {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s, border-color 0.2s;
+  }
+
+  .lb-thumb:hover {
+    opacity: 0.8;
+  }
+
+  .lb-thumb.active {
+    opacity: 1;
+    border-color: #fff;
+  }
+
+  .lb-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 600px) {
+    .lb-arrow {
+      font-size: 2rem;
+    }
+
+    .lb-prev {
+      left: 0.25rem;
+    }
+
+    .lb-next {
+      right: 0.25rem;
+    }
+
+    .lb-img-wrap {
+      padding: 3rem 2.5rem 0.5rem;
+    }
+
+    .lb-thumb {
+      width: 44px;
+      height: 44px;
+    }
+  }
+</style>
