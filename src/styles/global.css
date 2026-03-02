@@ -69,3 +69,35 @@ p {
   margin: 0 auto;
   padding: 0 2rem;
 }
+
+/* Fade-in animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate.visible {
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate {
+    opacity: 1;
+    transform: none;
+  }
+  .animate.visible {
+    animation: none;
+  }
+}

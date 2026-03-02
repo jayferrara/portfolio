@@ -31,7 +31,6 @@ const navStartsTransparent = isHomepage || transparentNav;
     <nav class:list={['nav', { scrolled: !navStartsTransparent }]}>
       <div class:list={['nav-inner', 'container', { 'logo-visible': !isHomepage }]}>
         <a href="/" class:list={['nav-logo', { visible: !isHomepage }]}>Jason Ferrara</a>
-        <span class="nav-divider"></span>
         <ul class="nav-links">
           {navLinks.map(({ label, href }) => (
             <li>
@@ -58,6 +57,20 @@ const navStartsTransparent = isHomepage || transparentNav;
       </div>
     </footer>
     <script>
+      // Fade-in animations
+      const animateEls = document.querySelectorAll('.animate');
+      if (animateEls.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        animateEls.forEach((el) => observer.observe(el));
+      }
+
       const nav = document.querySelector('.nav') as HTMLElement | null;
       const navInner = document.querySelector('.nav-inner');
       const navLogo = document.querySelector('.nav-logo');
@@ -131,17 +144,17 @@ const navStartsTransparent = isHomepage || transparentNav;
     font-size: 1.125rem;
     letter-spacing: -0.02em;
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateX(-6px);
     max-width: 0;
     overflow: hidden;
     white-space: nowrap;
-    transition: opacity 0.3s ease, transform 0.3s ease, max-width 0.3s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, max-width 0.2s ease;
     pointer-events: none;
   }
 
   .nav-logo.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
     max-width: 12rem;
     pointer-events: auto;
   }

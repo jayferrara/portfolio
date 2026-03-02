@@ -10,17 +10,17 @@ const { variant = 'default' } = Astro.props;
   <div class:list={['cta-inner', { 'cta-card': variant === 'case-study' }]}>
     {variant === 'case-study' ? (
       <>
-        <h2 class="cta-title">Want to Go Deeper?</h2>
-        <p class="cta-body">This overview only scratches the surface. I'm always open to discussing the decisions, constraints, and collaboration that shaped the work in detail.</p>
+        <h2 class="cta-title animate">Want to Go Deeper?</h2>
+        <p class="cta-body animate" style="--delay: 0.1s">This overview only scratches the surface. I'm always open to discussing the decisions, constraints, and collaboration that shaped the work in detail.</p>
       </>
     ) : (
       <>
-        <h2 class="cta-title">Let's Connect</h2>
-        <p class="cta-body">Most of my work happens at moments of change; when platforms are evolving and clarity matters.</p>
-        <p class="cta-body">If that sounds familiar, I'd be glad to connect.</p>
+        <h2 class="cta-title animate">Let's Connect</h2>
+        <p class="cta-body animate" style="--delay: 0.1s">Most of my work happens at moments of change; when platforms are evolving and clarity matters.</p>
+        <p class="cta-body animate" style="--delay: 0.15s">If that sounds familiar, I'd be glad to connect.</p>
       </>
     )}
-    <div class="cta-links">
+    <div class="cta-links animate" style="--delay: 0.2s">
       <a href="mailto:jsferrara@gmail.com" class="cta-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         jsferrara@gmail.com

@@ -34,15 +34,15 @@ const orgs = [
   <div class="page-gradient">
     <section class="hero-block">
       <div class="hero-inner container">
-        <h1>Jason Ferrara</h1>
-        <p class="hero-role">Product Design Leader</p>
-        <p class="hero-subtitle">I lead with a clear vision for the experience. I bring structure to complexity, align people around what matters, and build platforms that are built to grow.</p>
+        <h1 class="animate">Jason Ferrara</h1>
+        <p class="hero-role animate" style="--delay: 0.1s">Product Design Leader</p>
+        <p class="hero-subtitle animate" style="--delay: 0.2s">I lead with a clear vision for the experience. I bring structure to complexity, align people around what matters, and build platforms that are built to grow.</p>
       </div>
     </section>
 
     <section class="work container">
-      {orgs.map((org) => (
-        <a href={org.href} class="org-card">
+      {orgs.map((org, i) => (
+        <a href={org.href} class="org-card animate" style={`--delay: ${0.1 * i}s`}>
           <img src={org.image} alt={org.name} class="org-bg" />
           <span class="org-role">{org.role}, {org.years}</span>
         </a>
@@ -76,9 +76,9 @@ const orgs = [
   }
 
   .hero-block {
-    padding: 7rem 0 4rem;
+    padding: 10rem 0 5rem;
     margin-top: calc(-1 * var(--nav-height));
-    padding-top: calc(7rem + var(--nav-height));
+    padding-top: calc(10rem + var(--nav-height));
     margin-bottom: 1.5rem;
   }
 
@@ -168,8 +168,8 @@ const orgs = [
   @media (max-width: 700px) {
 
     .hero-block {
-      padding: 3rem 0 3rem;
-      padding-top: calc(3rem + var(--nav-height));
+      padding: 5rem 0 3rem;
+      padding-top: calc(5rem + var(--nav-height));
       margin-bottom: 2rem;
     }
 
