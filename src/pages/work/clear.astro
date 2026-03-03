@@ -102,7 +102,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
         <div class="impact-grid-side">
           <div class="impact-metric animate">
-            <span class="impact-delta">120+</span>
+            <span class="impact-delta" style="white-space: nowrap;">1<span style="font-size: 0.5em; vertical-align: middle; margin: 0 0.15em;">&rarr;</span>120+</span>
             <span class="impact-label">Live Partners</span>
           </div>
           <div class="impact-metric animate" style="--delay: 0.1s">
@@ -834,4 +834,5 @@ import ContactCTA from '../../components/ContactCTA.astro';
       if (e.key === 'ArrowRight') goTo(current + 1);
     });
   }
+
 </script>
