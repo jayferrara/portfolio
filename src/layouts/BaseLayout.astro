@@ -1,4 +1,6 @@
 ---
+import Analytics from '@vercel/analytics/astro';
+
 interface Props {
   title?: string;
   transparentNav?: boolean;
@@ -98,6 +100,7 @@ const navStartsTransparent = isHomepage || transparentNav;
         }
       }
     </script>
+    <Analytics />
   </body>
 </html>
 
